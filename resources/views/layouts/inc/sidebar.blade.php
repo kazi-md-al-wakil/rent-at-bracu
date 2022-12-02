@@ -62,6 +62,12 @@
                     <p>Rent Requests</p>
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('order-history') ? 'active':'' }}">
+                <a class="nav-link" href="{{url('order-history')}}">
+                    <i class="material-icons">check_circle</i>
+                    <p>Completed Rent Requests</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

@@ -1,16 +1,18 @@
-@extends('layouts.front')
+@extends('layouts.admin')
 
 @section('title')
-    My Orders
+    Rent Requests
 @endsection
 
+
 @section('content')
-    <div class="container py-5">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>My Orders</h4>
+                    <div class="card-header header-h">
+                        <h4>New Rent Requests</h4>
+                        <a href="{{url('order-history')}}" class="btn btn-warning float-right">Completed Requests</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -28,10 +30,10 @@
                                     <tr>
                                         <td>{{ date('d-m-y', strtotime($item->created_at)) }}</td>
                                         <td>{{ $item->track_no }}</td>
-                                        <td>{{ $item->total }} BDT</td>
+                                        <td>{{ $item->total }}</td>
                                         <td>{{ $item->o_status == "0"? 'pending': 'completed' }}</td>
                                         <td>
-                                            <a href="{{ url('view-order/'.$item->id) }}" class="btn btn-primary">view</a>
+                                            <a href="{{ url('orders/view-order/'.$item->id) }}" class="btn btn-primary">view</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -39,7 +41,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
