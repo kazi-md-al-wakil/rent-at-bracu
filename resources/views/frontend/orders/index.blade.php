@@ -18,7 +18,7 @@
                                 <tr>
                                     <th>Order Date</th>
                                     <th>Tracking Number</th>
-                                    <th>Total Price</th>
+                                    <th>Total Rent Cost</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -28,7 +28,7 @@
                                     <tr>
                                         <td>{{ date('d-m-y', strtotime($item->created_at)) }}</td>
                                         <td>{{ $item->track_no }}</td>
-                                        <td>{{ $item->total }}</td>
+                                        <td>{{ $item->total }} BDT</td>
                                         <td>{{ $item->o_status == "0"? 'pending': 'completed' }}</td>
                                         <td>
                                             <a href="{{ url('view-order/'.$item->id) }}" class="btn btn-primary">view</a>

@@ -37,7 +37,7 @@
                                             <th>Qunatity</th>
                                             <th>Rent Days</th>
                                             <th>Image</th>
-                                            <th>Price</th>
+                                            <th>Item Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,7 +56,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <h4 class="px-2"> Total: <span class="float-end">Tk. {{ $orders->total }}</span> </h4>
+                                <h4 class="px-2"> Total Rent Cost: <span class="float-end">{{ $orders->total }} BDT</span> </h4>
                             </div>
                         </div>
 
