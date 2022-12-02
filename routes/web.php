@@ -23,7 +23,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great! Ou yea wassup
+| contains the "web" middleware group. Now create something great! Ou yea wassup 
 |
 */
 
@@ -31,6 +31,8 @@ Route::get('/', [FrontendController::class, 'index']);
 // Route::get('index', [FrontendController::class, 'index']);
 Route::get('category', [FrontendController::class, 'category']);
 Route::get('category/{custom_url}', [FrontendController::class, 'view_category']);
+
+
 Route::get('category/{category_custom_url}/{product_custom_url}', [FrontendController::class, 'view_product']);
 Route::get('product-list',[FrontendController::class,'list']);
 Route::post('searchproduct',[FrontendController::class,'search']);

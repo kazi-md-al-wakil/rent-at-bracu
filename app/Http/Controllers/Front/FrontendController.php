@@ -35,25 +35,35 @@ class FrontendController extends Controller
     }
     public function view_product($category_custom_url, $product_custom_url)
     {
-        if (Category::where('custom_url', $category_custom_url)->exists()) {
-            if (Product::where('custom_url', $product_custom_url)->exists()) {
+        if (Category::where('custom_url', $category_custom_url)->exists()) 
+        {
+            if (Product::where('custom_url', $product_custom_url)->exists()) 
+            {
                 $products = Product::where('custom_url', $product_custom_url)->first();
+                /*
                 $ratings = Rating::where('prod_id', $products->id)->get();
                 $sum_rated = Rating::where('prod_id', $products->id)->sum('stars_rated');
                 $user_rating = Rating::where('prod_id', $products->id)->where('user_id', Auth::id())->first();
                 $reviews = Review::where('prod_id', $products->id)->get();
+                
 
                 if ($ratings->count() > 0) {
                     $rating_value = $sum_rated / $ratings->count();
                 } else {
                     $rating_value = 0;
                 }
-                return view('frontend.products.productview', compact('products', 'reviews', 'user_rating', 'ratings', 'rating_value'));
-            } else {
+                */
+                return view('frontend.products.productview', compact('products'));
+                //return view('frontend.products.productview', compact('products', 'reviews', 'user_rating', 'ratings', 'rating_value'));
+            } 
+            else 
+            {
                 return redirect('/')->with('status', 'No Such Product Found');
             }
-        } else {
-            return redirect('/')->with('status', 'Link is Broken');
+        } 
+        else 
+        {
+            return redirect('/')->with('status', 'No Such Category Found');
         }
     }
     public function list()
