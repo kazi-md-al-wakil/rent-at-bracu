@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('product_id');
             $table->string('product_qty');
-            // $table->bigInteger('total');
+            $table->string('product_rent_days');
             $table->timestamps();
         });
     }

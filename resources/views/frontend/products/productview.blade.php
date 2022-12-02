@@ -77,7 +77,7 @@
                             
                         </h2>
                         <hr>
-                        <label class="me-3">Price: <s>Tk. {{ $products->original_price }}</s></label>
+                        <label class="me-3">Rent cost: <s>Tk. {{ $products->original_price }}</s></label>
                         <label class="fw-bold">Tk. {{ $products->selling_price }}</label>
 
                         <p class="mt-3">
@@ -98,6 +98,13 @@
                                     <input type="text" name="quantity " value="1"
                                         class="form-control qty-inp text-center " />
                                     <button class="input-group-text increase-btn">+</button>
+                                </div>
+                                <label for="Quantity">Rent for (days) </label>
+                                <div class="input-group text-center mb-3">
+                                    <button class="input-group-text decrease-btnn">-</button>
+                                    <input type="text" name="days " value="1"
+                                        class="form-control day-inp text-center " />
+                                    <button class="input-group-text increase-btnn">+</button>
                                 </div>
                             </div>
                         </div>

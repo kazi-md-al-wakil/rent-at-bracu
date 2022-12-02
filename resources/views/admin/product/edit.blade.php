@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="">Original Price</label>
+                    <label for="">Original Rent Cost</label>
                     <input type="number" class="form-control" value="{{ $products->original_price }}"
                         name="original_price">
                 </div>
@@ -44,7 +44,7 @@
                     <input type="number" class="form-control" value="{{ $products->tax }}" name="tax">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="">Selling Price</label>
+                    <label for="">Rent Cost</label>
                     <input type="number" class="form-control" value="{{ $products->selling_price }}"
                         name="selling_price">
                 </div>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="">Status</label>
+                    <label for="">Hide</label>
                     <input type="checkbox" {{ $products->status == 1 ? 'checked':'' }} name="status">
                 </div>
                 <div class="col-md-6 mb-3">

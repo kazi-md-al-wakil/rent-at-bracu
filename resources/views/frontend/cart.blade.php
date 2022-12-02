@@ -37,6 +37,7 @@
                         </div>
                         <div class="col-md-2">
                             <input type="hidden" class="product_id" value="{{ $item->product_id }}">
+                            <input type="hidden" class="product_id" value="{{ $item->product_rent_days }}">
                             @if ($item->products->qty >= $item->product_qty)
                                 <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3" style="width:130px;">
@@ -45,8 +46,15 @@
                                         value='{{ $item->product_qty }}'>
                                     <button class="input-group-text changeQty increase-btn">+</button>
                                 </div>
+                                <label for="Quantity">Rent for (days) </label>
+                                <div class="input-group text-center mb-3" style="width:130px;">
+                                    <button class="input-group-text changeQty decrease-btnn">-</button>
+                                    <input type="text" name="days" class="form-control day-inp text-center"
+                                        value='{{ $item->product_rent_days}}'>
+                                    <button class="input-group-text changeQty increase-btnn">+</button>
+                                </div>
                                 @php
-                                    $total += $item->products->selling_price * $item->product_qty;
+                                    $total += $item->products->selling_price * $item->product_qty * $item->product_rent_days;
                                     // $item->total = $total;
                                 @endphp
                             @else

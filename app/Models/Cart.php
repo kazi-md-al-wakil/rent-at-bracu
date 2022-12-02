@@ -13,7 +13,7 @@ class Cart extends Model
         'user_id',
         'product_id',
         'product_qty',
-        // 'total',
+        'product_rent_days',
     ];
     public function products()
     {

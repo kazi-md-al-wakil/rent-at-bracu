@@ -14,8 +14,9 @@ class CartController extends Controller
     {
         $product_id = $request->input('product_id');
         $product_qty = $request->input('product_qty');
+        $product_rent_days = $request->input('product_rent_days');
 
-        if (Auth::check()) {
+        if (Auth::check()) {  
             $product_check = Product::where('id', $product_id)->first();
 
             if ($product_check) {
@@ -26,6 +27,7 @@ class CartController extends Controller
                     $cartItem->product_id = $product_id;
                     $cartItem->user_id = Auth::id();
                     $cartItem->product_qty = $product_qty;
+                    $cartItem->product_rent_days = $product_rent_days;
                     $cartItem->save();
                     return response()->json(['status' => $product_check->name . " added To cart"]);
                 }
@@ -57,13 +59,15 @@ class CartController extends Controller
     {
         $product_id = $request->input('product_id');
         $product_qty = $request->input('product_qty');
+        $product_rent_days = $request->input('product_rent_days');
 
         if(Auth::check()){
             if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
                 $cart = Cart::where('product_id',$product_id)->where('user_id',Auth::id())->first();
                 $cart->product_qty = $product_qty;
+                $cart->product_rent_days = $product_rent_days;
                 $cart->update();
-                return response()->json(['status' => "Quantity updated Successfully"]);
+                return response()->json(['status' => "Updated Successfully"]);
             }
         }
     }

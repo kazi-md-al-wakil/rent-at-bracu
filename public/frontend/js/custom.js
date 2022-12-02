@@ -11,6 +11,10 @@ $(document).ready(function () {
             .closest(".product_data")
             .find(".qty-inp")
             .val();
+        var product_rent_days = $(this)
+            .closest(".product_data")
+            .find(".day-inp")
+            .val();
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -22,6 +26,7 @@ $(document).ready(function () {
             data: {
                 product_id: product_id,
                 product_qty: product_qty,
+                product_rent_days: product_rent_days
             },
             success: function (response) {
                 swal(response.status);
@@ -50,6 +55,30 @@ $(document).ready(function () {
             $(this).closest(".product_data").find(".qty-inp").val(value);
         }
     });
+    //---------------------------------
+    $(".increase-btnn").click(function (e) {
+        e.preventDefault();
+
+        var value_inc = $(this).closest('.product_data').find('.day-inp').val();
+        var value = parseInt(value_inc, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value < 10) {
+            value++;
+            $(this).closest('.product_data').find('.day-inp').val(value);
+        }
+    });
+    $(".decrease-btnn").click(function (e) {
+        e.preventDefault();
+
+        var value_dec = $(this).closest(".product_data").find(".day-inp").val();
+        var value = parseInt(value_dec, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value > 1) {
+            value--;
+            $(this).closest(".product_data").find(".day-inp").val(value);
+        }
+    });
+
     $('.delete-cart-item').click(function (e) {
         e.preventDefault();
 
@@ -77,9 +106,11 @@ $(document).ready(function () {
 
         var product_id = $(this).closest(".product_data").find(".product_id").val();
         var qty = $(this).closest(".product_data").find(".qty-inp").val();
+        var days = $(this).closest(".product_data").find(".day-inp").val();
         data={
             'product_id':product_id,
             'product_qty':qty,
+            'product_rent_days':days
         }
         $.ajaxSetup({
             headers: {

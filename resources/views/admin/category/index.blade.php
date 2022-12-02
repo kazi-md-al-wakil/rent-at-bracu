@@ -12,7 +12,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Category Id</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Image</th>

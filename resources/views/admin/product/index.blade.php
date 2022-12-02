@@ -12,11 +12,12 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Product Id</th>
                     <th>Category</th>
                     <th>Name</th>
-                    <th>Original price</th>
-                    <th>Selling Price</th>
+                    <th>Quantity</th>
+                    <th>Original Rent Cost</th>
+                    <th>Rent Cost</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -27,6 +28,7 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->category->name }}</td>
                     <td>{{ $item->name }}</td>
+                    <td>{{ $item->qty }}</td>
                     <td>{{ $item->original_price }}</td>
                     <td>{{ $item->selling_price }}</td>
                     <td>
