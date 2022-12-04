@@ -12,6 +12,7 @@ use App\Http\Controllers\Front\RatingController;
 use App\Http\Controllers\Front\ReviewController;
 // use App\Http\Controllers\Front\StripeController;
 use App\Http\Controllers\Front\UserController;
+use App\Http\Controllers\Front\WishlistController;
 use App\Http\Controllers\OrderController;
 use App\Models\Review;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -43,12 +44,20 @@ Route::post('add-to-cart', [CartController::class, 'add']);
 Route::post('delete-cart-item', [CartController::class, 'delete']);
 Route::post('update-cart', [CartController::class, 'update']);
 
+Route::post('add-to-wishlist ', [WishlistController::class, 'add']);
+Route::post('delete-wish-item ', [WishlistController::class, 'deleteitem']);
+
+
 Route::middleware('auth')->group(function () {
     Route::get('cart', [CartController::class, 'viewcart']);
     Route::get('checkout', [CheckoutController::class, 'index']);
     Route::post('place-order', [CheckoutController::class, 'place_order']);
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
+
+    Route::get('wishlist', [WishlistController::class, 'index']);
+    
+    
 
     Route::post('procced-to-pay',[CheckoutController::class,'razorpaycheck']);
 
