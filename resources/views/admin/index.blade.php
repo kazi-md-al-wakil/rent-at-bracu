@@ -8,7 +8,7 @@
     </div>
     <div class="card">
         <div class="card-header header-h">
-            <h4>Registered Users
+            <h4>Registered Users</h4>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped">
@@ -37,30 +37,35 @@
             </table>
         </div>
     </div>
-    <div class="card-body">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Rent Request Date</th>
-                    <th>Tracking Number</th>
-                    <th>Total Rent Cost</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($orders as $item)
+    <div class="card">
+        <div class="card-header header-h">
+            <h4>Pending Requests </h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>{{ date('d-m-y', strtotime($item->created_at)) }}</td>
-                        <td>{{ $item->track_no }}</td>
-                        <td>{{ $item->total }} BDT</td>
-                        <td>{{ $item->o_status == "0"? 'pending': 'completed' }}</td>
-                        <td>
-                            <a href="{{ url('view-order/'.$item->id) }}" class="btn btn-primary">view</a>
-                        </td>
+                        <th>Rent Request Date</th>
+                        <th>Tracking Number</th>
+                        <th>Total Rent Cost</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($orders as $item)
+                        <tr>
+                            <td>{{ date('d-m-y', strtotime($item->created_at)) }}</td>
+                            <td>{{ $item->track_no }}</td>
+                            <td>{{ $item->total }}</td>
+                            <td>{{ $item->o_status == "0"? 'pending': 'completed' }}</td>
+                            <td>
+                                <a href="{{ url('orders/view-order/'.$item->id) }}" class="btn btn-primary">view</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

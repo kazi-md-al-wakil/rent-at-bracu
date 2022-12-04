@@ -17,12 +17,6 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item {{ Request::is('admin-user') ? 'active':'' }}">
-                <a class="nav-link" href="{{ url('admin-user')}}">
-                    <i class="material-icons">sentiment_satisfied</i>
-                    <p>User Profile</p>
-                </a>
-            </li>
             <li class="nav-item {{ Request::is('users') ? 'active':'' }}">
                 <a class="nav-link" href="{{ url('users')}}">
                     <i class="material-icons">persons</i>
@@ -42,7 +36,7 @@
                 </a>
             </li>
 
-            
+
             <li class="nav-item {{ Request::is('products') | Request::is('product-add') ? 'active':'' }}">
                 <a class="nav-link" href="{{ url('products')}}">
                     <i class="material-icons">store</i>
