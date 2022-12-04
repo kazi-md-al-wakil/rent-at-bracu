@@ -5,10 +5,10 @@
 
 @section('content')
     @include('layouts.inc.slider')
-    <div class="py-5">
+    <div class="py-5 bgclr">
         <div class="container">
             <div class="row">
-                <h2>Products you can rent</h2>
+                <h2 class = "headerF">Products you can rent</h2>
                 <div class="feature-carousel owl-carousel owl-theme">
                     @foreach ($feature_product as $item)
                         <div class="item">
@@ -30,10 +30,10 @@
             </div>
         </div>
     </div>
-    <div class="py-5">
+    <div class="py-5 bgclr">
         <div class="container">
             <div class="row">
-                <h2>Popular Categories</h2>
+                <h2 class="headerF">Popular Categories</h2>
                 <div class="feature-carousel owl-carousel owl-theme">
                     @foreach ($popular_category as $item)
                         <div class="item">

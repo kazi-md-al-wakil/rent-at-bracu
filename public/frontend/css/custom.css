@@ -1,4 +1,5 @@
 /* CSS frontend*/
+
 *{
     font-family: "Fira Sans", sans-serif;
 }
@@ -96,4 +97,12 @@ a {
 .imgwd
 {
     height: 50% !important;
+}
+.bgclr
+{
+    background-color: rgba(167, 182, 182, 0.959);
+}
+.headerF
+{
+    padding: 1rem;
 }
