@@ -14,6 +14,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('category') }}">Category</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i>
+                        <span class="badge badge-pill bg-primary cart-count">0</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i>
+                        <span class="badge badge-pill bg-success wish-count">0</span>
+                    </a>
+                </li>
                 @guest
                 @if (Route::has('login'))
                 <li class="nav-item">

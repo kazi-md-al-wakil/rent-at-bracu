@@ -40,6 +40,9 @@ Route::post('searchproduct',[FrontendController::class,'search']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('load-cart-data', [CartController::class, 'cartcount']);
+Route::get('load-wishlist-count', [WishlistController::class, 'wishlistcount']);
 Route::post('add-to-cart', [CartController::class, 'add']);
 Route::post('delete-cart-item', [CartController::class, 'delete']);
 Route::post('update-cart', [CartController::class, 'update']);
