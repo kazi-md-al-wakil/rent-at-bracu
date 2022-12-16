@@ -5,6 +5,41 @@
 @endsection
 
 @section('content')
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ url('add-rating') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $products->id }}">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Rate {{ $products->name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="rating-css">
+                            <div class="star-icon">
+                                <input type="radio" value="1" name="product_rating" checked id="rating1">
+                                <label for="rating1" class="fa fa-star"></label>
+                                <input type="radio" value="2" name="product_rating" id="rating2">
+                                <label for="rating2" class="fa fa-star"></label>
+                                <input type="radio" value="3" name="product_rating" id="rating3">
+                                <label for="rating3" class="fa fa-star"></label>
+                                <input type="radio" value="4" name="product_rating" id="rating4">
+                                <label for="rating4" class="fa fa-star"></label>
+                                <input type="radio" value="5" name="product_rating" id="rating5">
+                                <label for="rating5" class="fa fa-star"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="py-3 mb-4 shadow-sm bg-warning border-top">
         <div class="container">
@@ -39,12 +74,30 @@
                                     <!--{{ $products->popular == '1' ? 'Popular' : '' }}-->
                                 </label>
                             @endif
-                            
+
                         </h2>
                         <hr>
                         <label class="me-3">Rent cost: <s>Tk. {{ $products->original_price }}</s></label>
                         <label class="fw-bold">Tk. {{ $products->selling_price }}</label>
+                        @php
+                            $ratenum = number_format($rating_value);
+                        @endphp
+                        <div class="rating">
+                            @for ($i = 1; $i <= $ratenum; $i++)
+                                <i class="fa fa-star checked"></i>
+                            @endfor
+                            @for ($j = $ratenum + 1; $j <= 5; $j++)
+                                <i class="fa fa-star"></i>
+                            @endfor
+                            <span>
+                                @if ($ratings->count() <= 0)
+                                    No Ratings yet
+                                @else
+                                    {{ $ratings->count() }} Ratings
+                                @endif
 
+                            </span>
+                        </div>
                         <p class="mt-3">
                             {!! $products->small_description !!}
                         </p>
@@ -90,9 +143,57 @@
                         {!! $products->description !!}
                     </p>
                 </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary py-2" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Rate this Product
+                        </button>
+                        <a href='{{ url('add-review/' . $products->custom_url . '/userreview') }}'
+                            class="btn btn-link py-2">
+                            Write A review
+                        </a>
+                    </div>
+                    <div class="com-md-8 py-2 float-end">
+                        @foreach ($reviews as $review)
+                            <div class="user-review">
+                                <label>{{ $review->users->name . ' ' . $review->users->lname }}</label>
+                                @if ($review->user_id == Auth::id())
+                                    <a href="{{ url('edit-review/' . $products->custom_url . '/userreview') }}"
+                                        class="btn btn-outline-primary">edit</a>
+                                @endif
+                                <br>
+                                @php
+                                    $rating = App\Models\Rating::where('prod_id', $products->id)
+                                        ->where('user_id', $review->users->id)
+                                        ->first();
+                                @endphp
+                                @if ($rating)
+                                    @php
+                                        $user_rated = $rating->stars_rated;
+                                    @endphp
+                                    @for ($i = 1; $i <= $user_rated; $i++)
+                                        <i class="fa fa-star checked"></i>
+                                    @endfor
+                                    @for ($j = $user_rated + 1; $j <= 5; $j++)
+                                        <i class="fa fa-star"></i>
+                                    @endfor
+                                @endif
+                                <br>
+                                <small>Reviewed on {{ $review->created_at->format('d M Y') }}</small>
+                                <p>
+                                    {{ $review->user_review }}
+                                </p>
+                            </div>
+                        @endforeach
+
+                    </div>
+
+
+                </div>
             </div>
         </div>
-    </div>   
+    </div>
 
 @endsection
 
