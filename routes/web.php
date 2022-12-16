@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('wishlist', [WishlistController::class, 'index']);
 
-    
+
 
     Route::post('procced-to-pay',[CheckoutController::class,'razorpaycheck']);
 

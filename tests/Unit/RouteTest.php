@@ -10,7 +10,7 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_all_the_routes_are_being_tasted()
     {
         $response = $this->get('/');
         $response->assertStatus(200);
@@ -87,7 +87,7 @@ class RouteTest extends TestCase
         $response = $this->put('update-review');
         $response->assertStatus(302);
 
-        
+
 
     }
 }
