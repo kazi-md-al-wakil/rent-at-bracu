@@ -32,7 +32,7 @@
                             <label for="">Contact No.</label>
                             <div class="p-2 border">{{$users->phone}}</div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

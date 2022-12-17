@@ -27,4 +27,41 @@ class Category_Test extends TestCase
         ]);
         $response->assertRedirect('/login');
     }
+
+    public function test_index_view_of_inserting_a_new_category()
+    {
+        $response = $this->get('/add-category');
+        $response->assertRedirect('/login');
+    }
+
+    public function test_index_view_of_editing_a_category()
+    {
+        $response = $this->get('/edit-category/{id}');
+        $response->assertRedirect('/login');
+
+    }
+
+    public function test_updating_a_category()
+    {
+        $response = $this->put('/update-category/{id}',[
+
+            'name'=>'Sporrts',
+            'description'=>'sports stufff',
+            'custom_url'=>'sport stufffy',
+            'status'=>'0',
+            'is_popular'=>'1',
+            'image'=>'145659.jpg',
+            'meta_title'=>'sporting',
+            'meta_description'=>'sports stuff you need',
+            'meta_keywords'=>'sport, tennis, carrom, balls'
+        ]);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_deleting_a_category()
+    {
+        $response = $this->get('/delete-category/{id}');
+        $response->assertRedirect('/login');
+
+    }
 }

@@ -7,28 +7,24 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class Registe_A_New_User_Test extends TestCase
+class Login_A_New_User_Test extends TestCase
 {
     use RefreshDatabase;
-    public function test_new_users_store()
+    public function test_login_redirect_to_dashboard()
     {
 
         User::factory()->create([
-            'name'=>'Davido',
             'email'=>'daviod@gmail.com',
-            'password'=>bcrypt('sa21356711'),
+            'password'=>bcrypt('sa21356711')
 
         ]);
 
-        $response = $this->post('/register',[
-            'name'=>'Davido',
+        $response = $this->post('/login',[
             'email'=>'daviod@gmail.com',
-            'password'=>bcrypt('sa21356711'),
+            'password'=>bcrypt('sa21356711')
         ]);
 
         $response->assertStatus(302);
-        //$response->assrtRedirect('/');
+        $response->assertRedirect('/');
     }
-
-
 }

@@ -20,4 +20,11 @@ class DashboardController extends Controller
         $users = User::find($id);
         return view('admin.users.view',compact('users'));
     }
+    public function delUser($id)
+    {
+        $users = User::find($id);
+        $users -> delete();
+        return redirect('/dashboard')->with('status', 'User Successfully Banned');
+    }
+
 }

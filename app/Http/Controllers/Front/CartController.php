@@ -16,7 +16,7 @@ class CartController extends Controller
         $product_qty = $request->input('product_qty');
         $product_rent_days = $request->input('product_rent_days');
 
-        if (Auth::check()) {  
+        if (Auth::check()) {
             $product_check = Product::where('id', $product_id)->first();
 
             if ($product_check) {
@@ -71,10 +71,10 @@ class CartController extends Controller
             }
         }
     }
-    public function cartcount()
+    public function cartcount()//
     {
         $cartcount = Cart::where('user_id',Auth::id())->count();
         return response()->json(['count' => $cartcount]);
     }
-    
+
 }

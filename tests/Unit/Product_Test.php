@@ -35,4 +35,45 @@ class Product_Test extends TestCase
         $response->assertRedirect('/login');
     }
 
+    public function test_index_view_of_inserting_a_new_product()
+    {
+        $response = $this->get('/add-products');
+        $response->assertRedirect('/login');
+    }
+
+    public function test_index_view_of_editing_a_new_product()
+    {
+        $response = $this->get('/edit-product/{id}');
+        $response->assertRedirect('/login');
+    }
+
+    public function test_updating_a_product()
+    {
+        $response = $this->put('/update-product/{id}',[
+
+            'category_id'=>'3',
+            'name'=>'Brushh',
+            'description'=>'brush neat',
+            'small_description'=>'brush look',
+            'custom_url'=>'brush',
+            'original_price'=>'20',
+            'tax'=>'1',
+            'selling_price'=>'15',
+            'product_image'=>'166345.jpg',
+            'qty'=>'2',
+            'status'=>'0',
+            'popular'=>'1',
+            'meta_title'=>'brusssh',
+            'meta_description'=>'brush meta',
+            'meta_keywords'=>'teeth brush',
+        ]);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_deleting_a_product()
+    {
+        $response = $this->get('/delete-product/{id}');
+        $response->assertRedirect('/login');
+
+    }
 }

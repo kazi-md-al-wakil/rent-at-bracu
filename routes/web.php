@@ -98,5 +98,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('users', [DashboardController::class, 'users']);
     Route::get('users/view-user/{id}', [DashboardController::class, 'users_view']);
+    Route::get('delete-users/{id}', [DashboardController::class, 'delUser']);
 
-});
+});//
