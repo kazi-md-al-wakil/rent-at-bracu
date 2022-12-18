@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\Order;
 
 class Cart_Test extends TestCase
 {
@@ -37,6 +38,5 @@ class Cart_Test extends TestCase
         $response->assertStatus(200);
 
     }
-
 
 }

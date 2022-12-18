@@ -70,25 +70,4 @@ class CheckoutController extends Controller
         Cart::destroy($ordereditems);
         return redirect('/')->with('status', "Order is placed, Thank you");
     }
-    public function razorpaycheck(Request $request)
-    {
-        $cartitems = Cart::where('user_id', Auth::id())->get();
-        $total = 0;
-        foreach ($cartitems as $item) {
-            $price = $item->products->selling_price * $item->product_qty * $item->product_rent_days;
-            $total += $price;
-        }
-
-        $firstname = $request->input('firstname');
-        $email = $request->input('email');
-        $phone = $request->input('phone');
-
-
-        return response()->json([
-            'firstname' => $firstname,
-            'email' => $email,
-            'phone' => $phone,
-            'total' => $total,
-        ]);
-    }
 }

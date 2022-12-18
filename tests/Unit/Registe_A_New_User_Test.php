@@ -16,18 +16,18 @@ class Registe_A_New_User_Test extends TestCase
         User::factory()->create([
             'name'=>'Davido',
             'email'=>'daviod@gmail.com',
-            'password'=>bcrypt('sa21356711'),
+            'password'=>'sa21356711',
 
         ]);
 
         $response = $this->post('/register',[
             'name'=>'Davido',
             'email'=>'daviod@gmail.com',
-            'password'=>bcrypt('sa21356711'),
+            'password'=>'sa21356711',
         ]);
 
         $response->assertStatus(302);
-        //$response->assrtRedirect('/');
+        $response->assertRedirect('/');
     }
 
 
