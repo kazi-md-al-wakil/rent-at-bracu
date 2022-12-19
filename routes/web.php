@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UpcomingProductController;
+
 use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\FrontendController;
@@ -91,6 +93,16 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update-product/{id}', [ProductController::class, 'update']);
     Route::get('delete-product/{id}', [ProductController::class, 'del']);
 
+    Route::get('up-products', [UpcomingProductController::class, 'index']);
+    Route::get('add-up', [UpcomingProductController::class, 'add']);
+    Route::post('insert-up', [UpcomingProductController::class, 'insert']);
+    Route::get('edit-up-prod/{id}', [UpcomingProductController::class, 'edit']);
+    Route::put('update-up-prod/{id}', [UpcomingProductController::class, 'update']);
+    Route::get('delete-up-prod/{id}', [UpcomingProductController::class, 'del']);
+
+
+
+
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('orders/view-order/{id}', [OrderController::class, 'viewOrder']);
     Route::put('update-order/{id}', [OrderController::class, 'update']);
@@ -98,6 +110,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('users', [DashboardController::class, 'users']);
     Route::get('users/view-user/{id}', [DashboardController::class, 'users_view']);
-    Route::get('delete-users/{id}', [DashboardController::class, 'delUser']);
+    Route::get('delete-users/{id}', [DashboardController::class, 'delUser']);//
 
 });//

@@ -25,19 +25,21 @@ class Category_Test extends TestCase
             'meta_description'=>'sports you need',
             'meta_keywords'=>'sport, tenning, carrom'
         ]);
-        $response->assertRedirect('/login');
+        $response->assertRedirect('/dashboard');
     }
 
     public function test_index_view_of_inserting_a_new_category()
     {
         $response = $this->get('/add-category');
-        $response->assertRedirect('/login');
+
+        $response->assertRedirect('/category/add/');
     }
 
     public function test_index_view_of_editing_a_category()
     {
         $response = $this->get('/edit-category/{id}');
-        $response->assertRedirect('/login');
+
+        $response->assertRedirect('/category/edit/}');
 
     }
 
@@ -55,13 +57,13 @@ class Category_Test extends TestCase
             'meta_description'=>'sports stuff you need',
             'meta_keywords'=>'sport, tennis, carrom, balls'
         ]);
-        $response->assertRedirect('/login');
+        $response->assertRedirect('/dashboard');
     }
 
     public function test_deleting_a_category()
     {
         $response = $this->get('/delete-category/{id}');
-        $response->assertRedirect('/login');
+        $response->assertRedirect('/categories');
 
     }
 }

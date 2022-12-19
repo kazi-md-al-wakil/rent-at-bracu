@@ -20,6 +20,8 @@ class Order_Test extends TestCase
         $response = $this->actingAs($admin)->get('/orders');
         $response->assertStatus(200);
 
+        $response->assertRedirect('/edit-category/{id}');
+
     }
 
     public function test_admin_can_see_order_history()
@@ -30,7 +32,9 @@ class Order_Test extends TestCase
 
         $response = $this->actingAs($admin)->get('order-history');
         $response->assertStatus(200);
+        $response->assertRedirect('/order-history');
+
 
     }
-    
+
 }

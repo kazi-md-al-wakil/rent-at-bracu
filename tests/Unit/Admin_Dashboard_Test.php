@@ -17,6 +17,7 @@ class Admin_Dashboard_Test extends TestCase
         $response = $this->actingAs($admin)->get('/users');
 
         $response->assertStatus(200);
+        $response->assertRedirect('/home');
 
     }
 

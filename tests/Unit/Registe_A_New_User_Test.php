@@ -27,7 +27,7 @@ class Registe_A_New_User_Test extends TestCase
         ]);
 
         $response->assertStatus(302);
-        $response->assertRedirect('/');
+        $response->assertRedirect('/home');
     }
 
 
