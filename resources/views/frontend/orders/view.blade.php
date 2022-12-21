@@ -28,7 +28,7 @@
 
                             </div>
                             <div class="col-md-8">
-                                <h4>Order Details</h4>
+                                <h4>Rent Details</h4>
                                 <hr>
                                 <table class="table table-bordered">
                                     <thead>

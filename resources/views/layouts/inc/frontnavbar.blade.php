@@ -47,7 +47,7 @@
                             My Profile
                         </a>
                         <a class="dropdown-item" href="{{ url('my-orders') }}">
-                            My Orders
+                            My Rents
                         </a>
                         <a class="dropdown-item" href="{{ url('cart') }}">
                             My Cart

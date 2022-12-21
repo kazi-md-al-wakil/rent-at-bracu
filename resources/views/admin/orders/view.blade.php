@@ -56,7 +56,7 @@
                                 <h4 class="px-2"> Total: <span class="float-right"><strong>Tk.
                                             {{ $orders->total }}</span> </strong></h4>
                                 <div class="mt-3">
-                                    <label for=""> Order Status </label>
+                                    <label for=""> Rent Status </label>
                                     <form action="{{ url('update-order/' . $orders->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
