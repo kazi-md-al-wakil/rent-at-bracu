@@ -33,7 +33,7 @@ class A_Upcoming_Product_Test extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_admin_can_see_update_upcoming_product()
+    public function test_admin_can_update_upcoming_product()
     {
         $admin = User::factory()->create(['role_as'=>1]);
 
@@ -66,7 +66,7 @@ class A_Upcoming_Product_Test extends TestCase
         $upProd = UpcomingProducts::first();
 
         $response = $this->actingAs($admin)->get('/delete-up-prod/'. $upProd->id);
-        
+
         $this->assertEquals(0,UpcomingProducts::count());
     }
 }
