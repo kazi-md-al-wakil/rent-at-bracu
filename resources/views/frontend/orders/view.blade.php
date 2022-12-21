@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header colour">
-                        <h4>Order View
+                        <h4>Rent items View
                            <a href="{{ url('my-orders') }}" class="btn btn-warning float-end">Back<a>
                         </h4>
                     </div>
@@ -25,7 +25,7 @@
                                 <div class="border ">{{ $orders->email }}</div>
                                 <label for="">Contact No.</label>
                                 <div class="border ">{{ $orders->phone }}</div>
-                                
+
                             </div>
                             <div class="col-md-8">
                                 <h4>Order Details</h4>
@@ -47,7 +47,7 @@
                                                 <td>{{ $item->qty }}</td>
                                                 <td>{{ $item->rdays }}</td>
                                                 <td>
-                                                    <img 
+                                                    <img
                                                         src="{{ asset('assets/uploads/products/' . $item->products->product_image) }}"
                                                         width = "140px" alt="Image Of the Product">
                                                 </td>

@@ -15,13 +15,13 @@
                         <option value="">{{ $products->category->name }}</option>
                     </select>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label for="">Custom URL</label>
-                    <input type="text" class="form-control" value="{{ $products->custom_url }}" name="custom_url">
-                </div>
                 <div class=" col-md-6 mb-3">
                     <label for="">Name</label>
                     <input type="text" value="{{ $products->name }}" class=" form-control" name="name">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">Custom URL</label>
+                    <input type="text" class="form-control" value="{{ $products->custom_url }}" name="custom_url">
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="">Description</label>
@@ -33,7 +33,7 @@
                     <textarea name="small_description" rows="3"
                         class="form-control">{{ $products->small_description }}</textarea>
                 </div>
-                
+
 
                 <div class="col-md-6 mb-3">
                     <label for="">Original Rent Cost</label>
