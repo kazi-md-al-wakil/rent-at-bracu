@@ -62,12 +62,6 @@
                     <p>Completed Rent Requests</p>
                 </a>
             </li>
-            <li class="nav-item {{ Request::is('orders') ? 'active':'' }}">
-                <a class="nav-link" href="{{ url('orders') }}">
-                    <i class="material-icons">content_paste</i>
-                    <p>Rent Requests</p>
-                </a>
-            </li>
             <li class="nav-item {{ Request::is('up-products') ? 'active':'' }}">
                 <a class="nav-link" href="{{url('up-products')}}">
                     <i class="material-icons">alarm</i>

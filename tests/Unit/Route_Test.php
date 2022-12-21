@@ -4,14 +4,14 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-class Admin_Route_Test extends TestCase
+class Route_Test extends TestCase
 {
     /**
      * A basic unit test example.
      *
      * @return void
      */
-    public function test_admin_routes_are_working_fine()
+    public function test_routes_are_working_fine()
     {
         $response = $this->get('categories');
         $response->assertStatus(302);
@@ -25,7 +25,6 @@ class Admin_Route_Test extends TestCase
         $response->assertStatus(302);
         $response = $this->get('delete-category/{id}');
         $response->assertStatus(302);
-
 
         $response = $this->get('products');
         $response->assertStatus(302);
@@ -53,6 +52,38 @@ class Admin_Route_Test extends TestCase
         $response = $this->get('users');
         $response->assertStatus(302);
         $response = $this->get('users/view-user/{id}');
+        $response->assertStatus(302);
+
+        $response = $this->get('cart');
+        $response->assertStatus(302);
+
+        $response = $this->get('checkout');
+        $response->assertStatus(302);
+
+        $response = $this->get('my-orders');
+        $response->assertStatus(302);
+
+        $response = $this->get('view-order/{id}');
+        $response->assertStatus(302);
+
+        $response = $this->get('wishlist');
+        $response->assertStatus(302);
+
+        $response = $this->post('procced-to-pay');
+        $response->assertStatus(302);
+
+        $response = $this->post('add-rating');
+        $response->assertStatus(302);
+
+        $response = $this->get('add-review/{product_url}/userreview');
+        $response->assertStatus(302);
+        $response = $this->get('edit-review/{product_url}/userreview');
+        $response->assertStatus(302);
+
+        $response = $this->post('add-review');
+        $response->assertStatus(302);
+
+        $response = $this->put('update-review');
         $response->assertStatus(302);
 
 

@@ -11,6 +11,6 @@ class UpcomingProducts extends Model
     protected $table = 'upcoming_products';
     protected $fillable = [
         'name',
-        'small_description'
+        'small_desc'
     ];
 }

@@ -50,7 +50,7 @@ Route::post('delete-cart-item', [CartController::class, 'delete']);
 Route::post('update-cart', [CartController::class, 'update']);
 
 Route::post('add-to-wishlist ', [WishlistController::class, 'add']);
-Route::post('delete-wish-item ', [WishlistController::class, 'deleteitem']);
+Route::post('delete-wish-item', [WishlistController::class, 'deleteitem']);
 
 
 Route::middleware('auth')->group(function () {
@@ -96,20 +96,20 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('up-products', [UpcomingProductController::class, 'index']);
     Route::get('add-up', [UpcomingProductController::class, 'add']);
     Route::post('insert-up', [UpcomingProductController::class, 'insert']);
-    Route::get('edit-up-prod/{id}', [UpcomingProductController::class, 'edit']);
-    Route::put('update-up-prod/{id}', [UpcomingProductController::class, 'update']);
-    Route::get('delete-up-prod/{id}', [UpcomingProductController::class, 'del']);
+    Route::get('edit-up-prod/{upproducts:id}', [UpcomingProductController::class, 'edit']);
+    Route::put('update-up-prod/{upproducts:id}', [UpcomingProductController::class, 'update']);
+    Route::get('delete-up-prod/{upproducts:id}', [UpcomingProductController::class, 'del']);
 
 
 
 
     Route::get('orders', [OrderController::class, 'index']);
-    Route::get('orders/view-order/{id}', [OrderController::class, 'viewOrder']);
-    Route::put('update-order/{id}', [OrderController::class, 'update']);
+    Route::get('orders/view-order/{orders:id}', [OrderController::class, 'viewOrder']);
+    Route::put('update-order/{orders:id}', [OrderController::class, 'update']);
     Route::get('order-history', [OrderController::class, 'ordHistory']);
 
     Route::get('users', [DashboardController::class, 'users']);
-    Route::get('users/view-user/{id}', [DashboardController::class, 'users_view']);
-    Route::get('delete-users/{id}', [DashboardController::class, 'delUser']);//
+    Route::get('users/view-user/{users:id}', [DashboardController::class, 'users_view']);
+    Route::get('delete-users/{users:id}', [DashboardController::class, 'delUser']);//
 
 });//

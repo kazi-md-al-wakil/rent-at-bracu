@@ -14,7 +14,7 @@ class WishlistController extends Controller
     {
         $wishlist = Wishlist::where('user_id', Auth::id())->get();
         return view('frontend.wishlist', compact('wishlist'));
-    }
+    }//
 
 
     public function add(Request $request)
@@ -31,12 +31,12 @@ class WishlistController extends Controller
                 $wish->save();
                 return response()->json(['status' => "Product added to Wishlist"]);
             }
-            else 
+            else
             {
                 return response()->json(['status' => "Product does not exist"]);
             }
         }
-        else 
+        else
         {
             return response()->json(['status' => "You Must be Logged In to Continue"]);
         }
@@ -60,5 +60,5 @@ class WishlistController extends Controller
         $wishcount = Wishlist::where('user_id',Auth::id())->count();
         return response()->json(['count' => $wishcount]);
     }
-    
+
 }
