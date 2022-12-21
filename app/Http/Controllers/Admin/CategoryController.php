@@ -75,12 +75,12 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if ($category->image) {
-            $path = 'assets/uploads/category/' . $category->image;
+            $path = 'assets/uploads/category/' . $category->image;//
             if (File::exists($path)) {
                 File::delete($path);
             }
         }
         $category->delete();
-        return redirect('/categories')->with('status', 'Category sucessfully Deleted');
+        return redirect('/categories')->with('status', 'Category sucessfully Deleted');//
     }
 }
