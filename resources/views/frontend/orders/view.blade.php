@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('title')
-    My Orders
+    My Rents
 @endsection
 
 @section('content')

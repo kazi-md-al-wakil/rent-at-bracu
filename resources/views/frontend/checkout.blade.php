@@ -31,7 +31,7 @@
                                     <input type="text" name="fname" value="{{ Auth::user()->name }}" class="form-control firstname" placeholder="Enter First Name">
                                     <span id="fname_error" class=" war-text" ></span>
                                 </div>
-        
+
                                 <div class="col-md-6">
                                     <label for="email">Email</label>
                                     <input type="email" name="email" value="{{ Auth::user()->email }}" class="form-control email" placeholder="Enter Email">
@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <h6>Order Detalis</h6>
+                            <h6>Rent Detalis</h6>
                             <hr>
                             <table class="table table-striped table-bordered">
                                 <tbody>
@@ -81,7 +81,7 @@
                             </table>
                             <hr>
                             <h6>Total Price: <strong>Tk. {{ $total }}</strong></h6>
-                            <button type="submit" class="btn btn-primary bg-success w-100">Place Order | Cash on Rent</button>
+                            <button type="submit" class="btn btn-primary bg-success w-100">Place Rent Request | Cash on Rent</button>
                             <button type ='submit'class="btn btn-primary bg-danger w-100 mt-3 razorpay-btn">Pay With Bkash</button>
                         </div>
                     </div>
