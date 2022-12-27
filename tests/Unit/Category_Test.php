@@ -39,7 +39,7 @@ class Category_Test extends TestCase
     {
         $response = $this->get('/edit-category/{id}');
 
-        $response->assertRedirect('/category/edit/}');
+        $response->assertRedirect('/category/edit/');
 
     }
 
