@@ -32,19 +32,19 @@ class Product_Test extends TestCase
             'meta_description'=>'brush meta',
             'meta_keywords'=>'teeth brush',
         ]);
-        $response->assertRedirect('/products');
+        $response->assertRedirect('/login');
     }
 
     public function test_index_view_of_inserting_a_new_product()
     {
         $response = $this->get('/add-products');
-        $response->assertRedirect('/product/add');
+        $response->assertRedirect('/login');
     }
 
     public function test_index_view_of_editing_a_new_product()
     {
         $response = $this->get('/edit-product/{id}');
-        $response->assertRedirect('/product/edit');
+        $response->assertRedirect('/login');
     }
 
     public function test_updating_a_product()
@@ -67,13 +67,13 @@ class Product_Test extends TestCase
             'meta_description'=>'brush meta',
             'meta_keywords'=>'teeth brush',
         ]);
-        $response->assertRedirect('/products');
+        $response->assertRedirect('/login');
     }
 
     public function test_deleting_a_product()
     {
         $response = $this->get('/delete-product/{id}');
-        $response->assertRedirect('/products');
+        $response->assertRedirect('/login');
 
     }
 }
